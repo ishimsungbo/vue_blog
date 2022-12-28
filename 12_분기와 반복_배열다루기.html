@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:v_on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>슬기형과 함께하는 Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table{
+            width: 100%;
+            text-align: left;
+        }
+        table th{
+            padding: 12px;
+            border-bottom: 2px solid darkgray;
+        }
+        table td{
+            padding: 12px;
+        }
+        table tr:nth-of-type(even){
+            background-color: rgba(0, 0, 255, 0.1);
+        }
+    </style>
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    headers:["피파랭킹",2021,2022,2019,2020],
+                    ranking:[
+                        ['브라질'   ,5,3,1,5],
+                        ['벨기에'   ,4,4,2,4],
+                        ['독일'     ,3,5,3,3],
+                        ['아르헨티나',2,1,4,2],
+                        ['프랑스'    ,1,2,5,1]
+                    ]
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>Vue.js 강좌 심화 배열 다루기 조건, 반복 디렉티브 v-if, v-for 12</h1>
+<div id="app">
+    <h2>피파랭킹</h2>
+    <table>
+        <thead> <!--테이블 헤더 반복-->
+            <th v-for="header in headers">{{ header }}</th>
+        </thead>
+        <tr v-for="line in ranking"> <!--1행 반복-->
+            <td v-for="country in line">{{ country }}</td> <!--1데이터 반복-->
+        </tr>
+    </table>
+</div>
+</body>
+</html>
