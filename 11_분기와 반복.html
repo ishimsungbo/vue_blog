@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:v_on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>슬기형과 함께하는 Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    myVisible: false,
+                    myArray:['사과','딸기','키위','수박','망고'],
+                    objArray:[
+                        {name: '삼성센스 14인치 노트북', price:1200000 },
+                        {name: 'LG그램 16인치 노트북', price:1400000 },
+                        {name: 'Apple Mac Book', price:1800000 }
+                    ]
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+    <h1>Vue.js 강좌 조건, 반복 (v-if ,v-for) 11</h1>
+<div id="app">
+    <h2>1. 조건 [v-if]</h2>
+    <label><input type="checkbox" v-model="myVisible">표시</label>
+    <p v-if="myVisible">체크박스가 ON 상태 (myVisible true 라면 표시)</p>
+    <p v-else="!myVisible">체크박스가 OFF 상태 (myVisible false 라면 표시)</p>
+    <h2>2. 반복 [v-for]</h2>
+    <ul>
+        <li v-for="item in myArray">{{ item }}</li>
+    </ul>
+    <h2>2. 반복 두번째 [v-for]</h2>
+    <ul>
+        <li v-for="(obj, index) in objArray">{{index}} , {{obj.name}} {{obj.price}}</li>
+    </ul>
+</div>
+</body>
+</html>
