@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    myCheck:false,
+                    arrayCheck:[],
+                    myAgree:false,
+                    myColor:[]
+                },
+                methods: {
+                    handleClick: function () {
+                        alert('전송했습니다');
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h2>Vue.js 강좌 여로가지 콤포넌트, 양방향 바인딩 v-model 08</h2>
+<div id="app">
+    <p>1. Boolean 참, 거짓 체크박스</p>
+    <label>
+        <input type="checkbox" v-model="myCheck">
+        체크박스의 상태는 : {{ myCheck }}
+    </label>
+
+    <p>2. 복수의 체크박스</p>
+    <label><input type="checkbox" v-model="arrayCheck" value="red">빨강</label>
+    <label><input type="checkbox" v-model="arrayCheck" value="blue">파랑</label>
+    <label><input type="checkbox" v-model="arrayCheck" value="yellow">노랑</label>
+    <p>선택한 색은 : {{arrayCheck}}</p>
+
+    <p>3. 동의 체크박스에 따른 버튼 활성/비활성화</p>
+    <label><input type="checkbox" v-model="myAgree">동의합니다</label>
+    <button v-bind:disabled="myAgree==false" v-on:click="handleClick">보내기</button>
+
+    <p>4. select 문자열이 선택한 색으로 변하는 예제</p>
+    <select v-model="myColor">
+        <option disabled value="">선택해주세요</option>
+        <option>red</option>
+        <option>blue</option>
+        <option>green</option>
+    </select>
+    <p v-bind:style="{color: myColor}">선택한 색상은 {{myColor}}</p>
+</div>
+</body>
+</html>

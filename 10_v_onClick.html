@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js sample</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    count:0,
+                    myText: ""
+                },
+                methods:{
+                    countUp: function(value){
+                        this.count += value;
+                    },
+                    showAlert: function(){
+                        alert("Enter 키를 눌렀습니다.")
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h1>Vue.js 강좌 심화 이벤트 처리 방법 v-on 10</h1>
+<div id="app">
+    <h2>1. 버튼 클릭 시, 숫자(5, 10, 50) 증가시키기</h2>
+    <p>{{ count }}</p>
+    <button v-on:click="countUp(5)">5 증가</button>
+    <button v-on:click="countUp(10)">10 증가</button>
+    <button v-on:click="countUp(50)">50 증가</button>
+    <h2>2. 엔터키를 눌었을 때</h2>
+    <input v-on:keyup.enter="showAlert" v-model="myText">
+    <p>{{myText}}</p>
+</div>
+</body>
+</html>
