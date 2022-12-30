@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:v_on="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>슬기형과 함께하는 Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    x: 200,
+                    y: 300
+                },
+                methods:{ //내용 무
+                     },
+                computed: {
+                    getPlusValue: function(){
+                        return this.x + this.y
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h1>Vue.js 강좌 데이터 감시 및 가공 - 산출속성(computed) 14</h1>
+<h2></h2>
+<div id="app">
+    <p>1 산출 속성을 조합해 사용한 예</p>
+    <p>{{ x }} 와 {{ y }} 의 덧셈은 {{getPlusValue}}</p>
+</div>
+</body>
+</html>
