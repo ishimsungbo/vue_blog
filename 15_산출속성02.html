@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:v_on="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>슬기형과 함께하는 Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    x: 200,
+                    y: 300,
+                    userInt:400
+                },
+                methods:{ //내용 무
+                     },
+                computed: {
+                    getValue:{
+                        get:function (){return this.userInt / 2},
+                        set:function (val){return this.userInt = val * 2},
+                    },
+                    getPlusValue: function(){
+                        return this.x + this.y
+                    },
+                    getDouble: function () {
+                        return this.getPlusValue * 2
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h1>Vue.js 강좌 데이터 감시 및 가공 - 산출속성(computed) 14 두번째</h1>
+<h2></h2>
+<div id="app">
+    <p>1 산출 속성 사용법</p>
+    <p>{{ x }} 와 {{ y }} 의 덧셈은 {{getPlusValue}}</p>
+    <p>2 산출 속성 조합</p>
+    <p>(x + y ) -> getPlusValue * 2 = getDouble 의 값 : {{getDouble}}</p>
+    <p>3 양방향 흐름과 변수의 동기화 (getter, setter)</p>
+    data 의 userInt : <input v-model.number="userInt">   {{ userInt }}
+    </br>
+    computed 의 getValue : <input v-model.number="getValue">   {{ getValue }}
+</div>
+</body>
+</html>

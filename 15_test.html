@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:v_on="http://www.w3.org/1999/xhtml">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>슬기형과 함께하는 Vue.js</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/vue.js"></script>
+    <script>
+        window.onload = function () {
+            new Vue({
+                el: "#app",
+                data: {
+                    width: 800
+                },
+                methods:{ //내용 무
+                     },
+                computed: {
+                    halfWidth:{
+                    get:function (){return this.width / 2},
+                    set:function (val){return this.width = val * 2}  // width 에 값을 지정해서 바꾼다.
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<h1>Vue.js 강좌 데이터 감시 및 가공 - 산출속성(computed) 14 두번째</h1>
+<h2></h2>
+<div id="app">
+    data 의 width : <input v-model.number="width"> : {{width}}
+    </br>
+    computed 의 halfWidth : <input v-model.number="halfWidth"> : {{halfWidth}}
+</div>
+</body>
+</html>
